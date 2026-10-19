@@ -1,0 +1,1 @@
+{"description":"Reference key-wrap service for EveSynapse token encryption (Cloudflare Worker).","name":"evesynapse-keywrap","private":true,"scripts":{"deploy":"wrangler deploy","dev":"wrangler dev","test":"node --test"},"type":"module"}

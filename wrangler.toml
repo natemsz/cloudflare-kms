@@ -1,0 +1,22 @@
+# EveSynapse key-wrap service — see README.md for the full setup.
+name = "evesynapse-keywrap"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# All configuration lives in secrets, never in this file:
+#
+#   npx wrangler secret put KEK
+#     The wrapping key: 32 random bytes, base64
+#     (generate with: openssl rand -base64 32)
+#
+#   npx wrangler secret put INSTANCES
+#     A JSON array of the instances allowed to call, one entry per
+#     EveSynapse install:
+#       [{"id": "my-instance",
+#         "credentialSha256": "<SHA-256 hex of the instance's credential>",
+#         "ips": ["203.0.113.7"]}]
+#     "ips" is optional; when present, only those source addresses
+#     may call for that instance. The credential itself is chosen
+#     by you (openssl rand -hex 32) and goes in the instance's .env
+#     as TOKEN_KEY_UNWRAP_CREDENTIAL — this service stores only its
+#     hash.

@@ -6,16 +6,14 @@ in a KMS instead of sitting in a file on the same machine as the
 database it protects.
 
 EveSynapse encrypts the EVE login tokens it stores (AES-256-GCM).
-With the key in `.env`, a copy of the machine's files — database
-and `.env` together — opens every token. With this service, the
+With the key in `.env`, a copy of the machine's files, database
+and `.env` together, opens every token. With this service, the
 key is wrapped by a key **this Worker alone holds**; the instance
 stores only the wrapped blob and calls the Worker once at startup
 to unwrap it. The usable key then lives in the app's memory only.
 
 You run this Worker in **your own Cloudflare account** (the free
-tier is far more than a once-per-start call needs). Nobody else —
-not EveSynapse's author, not this repo — ever holds your wrapping
-key or can unwrap your tokens.
+tier is far more than a once-per-start call needs).
 
 ## The protocol
 

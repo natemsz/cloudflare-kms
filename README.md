@@ -3,7 +3,7 @@
 A tiny key service for [EveSynapse](https://github.com/natemsz/evesynapse)
 self-hosters: it keeps your instance's token-encryption key wrapped
 in a KMS instead of sitting in a file on the same machine as the
-database it protects.
+database it protects. This is intended for ES, but can theoretically be used to encrypt any arbitrary token as well.
 
 EveSynapse encrypts the EVE login tokens it stores (AES-256-GCM).
 With the key in `.env`, a copy of the machine's files, database

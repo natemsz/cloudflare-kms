@@ -1,4 +1,4 @@
-# evesynapse-keywrap
+# cloudflare-kms
 
 A tiny key service for [EveSynapse](https://github.com/natemsz/evesynapse)
 self-hosters: it keeps your instance's token-encryption key wrapped

@@ -3,7 +3,8 @@
 A tiny key service for [EveSynapse](https://github.com/natemsz/evesynapse)
 self-hosters: it keeps your instance's token-encryption key wrapped
 in a KMS instead of sitting in a file on the same machine as the
-database it protects. This is intended for ES, but can theoretically be used to encrypt any arbitrary token as well.
+database it protects. This is intended for ES, but can theoretically be used
+to encrypt any arbitrary token as well.
 
 EveSynapse encrypts the EVE login tokens it stores (AES-256-GCM).
 With the key in `.env`, a copy of the machine's files, database
@@ -30,7 +31,10 @@ Wrapping is AES-256-GCM under the Worker's KEK, with a fresh
 random IV per wrap; the blob is that IV and ciphertext,
 base64url-encoded. The protocol is deliberately plain HTTPS and
 JSON: any function on any platform that answers these two calls
-can serve an EveSynapse instance instead of this Worker.
+can serve an EveSynapse instance instead of this Worker. For details
+on a secure setup in OCI, see the [ES.app](https://github.com/natemsz/evesynapse) README
+for instructions. Other cloud providers like Azure, Google, etc almost certainly would need
+additional code to make it work properly, which is not provided.
 
 ## Deploy yours
 
